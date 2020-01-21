@@ -1,0 +1,36 @@
+.THIS.debug-panel-root {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    margin: auto;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    display: block;
+}
+
+.THIS .debug-panel-content {
+    width: 70%;
+    height: 80%;
+    margin: 10% auto 0 auto;
+}
+
+.THIS .debug-panel-table {
+    margin: 40px 0;
+}
+
+.THIS .slds-cell-wrap div {
+    white-space: pre-wrap;
+}
+
+.THIS.debug-button {
+    z-index: 3;
+    margin-left: 15px;
+    margin-top: 5px;
+}
+
+.THIS.debug-button .slds-button__icon_left, 
+.THIS.debug-button .slds-button__icon--left {
+    margin:0;
+    transform: scale(1.5);
+}

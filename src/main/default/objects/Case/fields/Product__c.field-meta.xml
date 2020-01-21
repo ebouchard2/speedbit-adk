@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product__c</fullName>
+    <externalId>false</externalId>
+    <label>Product</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Speedbit Alta Fitness</fullName>
+                <default>false</default>
+                <label>Speedbit Alta Fitness</label>
+            </value>
+            <value>
+                <fullName>Speedbit Aria</fullName>
+                <default>false</default>
+                <label>Speedbit Aria</label>
+            </value>
+            <value>
+                <fullName>Speedbit Blaze Smart Fitness Watch</fullName>
+                <default>false</default>
+                <label>Speedbit Blaze Smart Fitness Watch</label>
+            </value>
+            <value>
+                <fullName>Speedbit Charge 2 Fitness</fullName>
+                <default>false</default>
+                <label>Speedbit Charge 2 Fitness</label>
+            </value>
+            <value>
+                <fullName>Speedbit Charge 2 Lavender</fullName>
+                <default>false</default>
+                <label>Speedbit Charge 2 Lavender</label>
+            </value>
+            <value>
+                <fullName>Speedbit Charge HR</fullName>
+                <default>false</default>
+                <label>Speedbit Charge HR</label>
+            </value>
+            <value>
+                <fullName>Speedbit Flex 2 Bangle</fullName>
+                <default>false</default>
+                <label>Speedbit Flex 2 Bangle</label>
+            </value>
+            <value>
+                <fullName>Speedbit Flex 2 Lariat Necklace</fullName>
+                <default>false</default>
+                <label>Speedbit Flex 2 Lariat Necklace</label>
+            </value>
+            <value>
+                <fullName>Speedbit Surge</fullName>
+                <default>false</default>
+                <label>Speedbit Surge</label>
+            </value>
+            <value>
+                <fullName>Speedbit Zip Fitness Tracker</fullName>
+                <default>false</default>
+                <label>Speedbit Zip Fitness Tracker</label>
+            </value>
+            <value>
+                <fullName>Speed Flex 2 Fitness Tracker</fullName>
+                <default>false</default>
+                <label>Speed Flex 2 Fitness Tracker</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

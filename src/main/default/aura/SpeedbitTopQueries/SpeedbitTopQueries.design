@@ -1,0 +1,5 @@
+<design:component >
+    <design:attribute name="title" label="Title" />
+    <design:attribute name="searchHub" label="Search Hub" />
+    <design:attribute name="outerClass" label="Style class of outer containter" />
+</design:component>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product_Family__c</fullName>
+    <externalId>false</externalId>
+    <label>Product Family</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Accessory</fullName>
+                <default>false</default>
+                <label>Accessory</label>
+            </value>
+            <value>
+                <fullName>Activity Tracker</fullName>
+                <default>false</default>
+                <label>Activity Tracker</label>
+            </value>
+            <value>
+                <fullName>Fitness Wristband</fullName>
+                <default>false</default>
+                <label>Fitness Wristband</label>
+            </value>
+            <value>
+                <fullName>Heart Rate + Fitness Wristband</fullName>
+                <default>false</default>
+                <label>Heart Rate + Fitness Wristband</label>
+            </value>
+            <value>
+                <fullName>Smart Fitness Watch</fullName>
+                <default>false</default>
+                <label>Smart Fitness Watch</label>
+            </value>
+            <value>
+                <fullName>Wi-Fi Smart Scale</fullName>
+                <default>false</default>
+                <label>Wi-Fi Smart Scale</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

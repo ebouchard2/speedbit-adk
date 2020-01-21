@@ -1,0 +1,20 @@
+.div__greetingsContainer {
+    width: 100%;
+    background-color: #dff6ff;
+    padding-top: 30px;
+}
+
+.div__greetingsUser {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.subtext {
+    font-size: 16px;
+}

@@ -1,0 +1,21 @@
+.THIS.personalization-form {
+    max-width: 1200px;
+    top: 50px;
+    z-index: 1;
+    position: relative;
+    margin: 0 auto;
+}
+
+@media (max-width: 800px) {
+    .THIS.personalization-form {
+        top: -10px;
+    }
+}
+
+.THIS .justify-flex-end {
+    justify-content: flex-end;
+}
+
+.THIS .coveo-result-layout-selector .coveo-icon {
+    height: 20px;
+}

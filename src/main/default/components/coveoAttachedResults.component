@@ -1,0 +1,85 @@
+<apex:component >
+    <div id="search" class="CoveoSearchInterface slds-card slds-card_boundary" data-design="new" data-results-per-page="5" data-excerpt-length="300" data-enable-history="false" data-auto-trigger-query="false">
+        <h3 class="attached_title">Coveo Attached Results</h3>
+        <div class="CoveoAnalytics"></div>
+        <div class="coveo-main-section">
+            <div class="coveo-results-column">
+                <div class="CoveoErrorReport"></div>
+                <div class="CoveoAttachedResultsFilter"></div>
+                <div class="CoveoResultList" data-auto-select-fields-to-include="true" data-layout="table">
+                    <div class="coveo-show-if-no-results">Nothing is attached yet.</div>
+
+                    <script id="my-table-header" class="result-template" type="text/html" data-role="table-header">
+                        <th style="width:50px"></th>
+                        <th style="width: 40%">Link</th>
+                        <th style="width: 40%">Description</th>
+                        <th style="width: 100px"
+                            class="CoveoSort coveo-table-header-sort"
+                            data-sort-criteria="date ascending,date descending"
+                            data-display-unselected-icon="false">Date</th>
+                        <th>Actions</th>
+                    </script>
+                    <!-- Not specifying a `data-role` attribute allows you to specify that this template applies to each table row. -->
+                    <script id="my-table-template" class="result-template" type="text/html">
+                        <td><span class="CoveoIcon" data-small="true" data-with-label="false"></span></td>
+                        <td><a class="CoveoResultLink"></a></td>
+                        <td><span class="CoveoExcerpt"></span></td>
+                        <td><span class="CoveoFieldValue" data-field="@date" data-helper="date"></span></td>
+                        <td><div class="CoveoAttachToCase table-action attach-to-case"></div>
+                            <div class="CoveoQuickview table-action"></div>
+                        </td>
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        .table-action {
+            width: 20px;
+            height: 20px;
+            float: left;
+        }
+        .table-action.attach-to-case {
+            margin: 3px 5px 0 0;
+        }
+        h3.attached_title {
+            font-size: 16px;
+            font-weight: 700;
+            padding: 15px 0 0 15px;
+        }
+        body {
+            padding: 0 !important;
+        }
+
+        .no-margins {
+            margin: 0 !important;
+        }
+
+        .salesforce-font {
+            font-family: 'Salesforce Sans', Arial, sans-serif !important;
+            color: rgb(43, 40, 38) !important;
+        }
+
+        .coveo-result-frame.coveo-result-folding-child-result,
+        .coveo-list-layout .coveo-result-folding-child-result:hover {
+            border: none;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .CoveoResultLink:hover,
+        .CoveoResultLink:visited,
+        a.CoveoResultLink:hover,
+        a.CoveoResultLink:visited,
+        .CoveoResult a.CoveoResultLink:hover,
+        .CoveoResult a.CoveoResultLink:visited {
+            text-decoration: none;
+            color: #009ddc;
+        }
+
+        .CoveoSearchInterface,
+        .CoveoFieldTable th,
+        .CoveoFieldTable td {
+            font-size: 12px;
+        }
+    </style>
+</apex:component>

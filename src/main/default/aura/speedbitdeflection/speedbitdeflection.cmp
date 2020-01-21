@@ -1,0 +1,31 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" >
+
+    <!-- Design Attributes -->
+    <aura:attribute name="name" type="String" default="speedbitdeflectionsalesforce" access="global" />
+    <aura:attribute name="title" type="String" default="Recommended Solutions" access="global" />
+    <aura:attribute name="searchHub" type="String" default="CommunityCaseCreation" access="global" />
+    <aura:attribute name="debug" type="Boolean" default="true" access="global" />
+
+    <!-- Private Attributes -->
+    <aura:attribute name="debugInfos" type="Map" />
+
+    <!-- Handlers -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <ltng:require styles="{!$Resource.speedbitstatic + '/community/css/community-case-deflection.css'}" />
+    
+    <!-- *** BODY *** -->
+    <c:ConsoleDebugPanel debugInfos="{!v.debugInfos}"></c:ConsoleDebugPanel>
+
+    <div aura:id="searchContainer" class="div__deflection-container">
+        <CoveoV2:CaseDeflection 
+            name="{!v.name}" 
+            title="{!v.title}" 
+            searchHub="{!v.searchHub}" 
+            debug="{!v.debug}" 
+            customScripts="{!$Resource.customscript}"
+            searchUIStyleExtensions="{!$Resource.speedbitstatic + '/community/css/community-case-deflection.css'}"
+            aura:id="coveoCaseDeflection" />
+    </div>
+
+</aura:component>

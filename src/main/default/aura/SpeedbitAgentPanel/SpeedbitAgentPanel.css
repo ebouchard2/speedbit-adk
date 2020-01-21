@@ -1,0 +1,8 @@
+.THIS.CoveoV2AgentPanel {
+    margin-top: -37px;
+}
+
+/* Disable a css hack on the AgentPanel side */
+.THIS .coveo-dropdown-header{
+    margin-right: 10px !important;
+}

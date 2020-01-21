@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ManagedTopics xmlns="http://soap.sforce.com/2006/04/metadata">
+    <managedTopic>
+        <fullName>Speedbit.Navigational:Speedbit Blaze</fullName>
+        <managedTopicType>Navigational</managedTopicType>
+        <name>Speedbit Blaze</name>
+        <parentName/>
+        <position>0</position>
+        <topicDescription/>
+    </managedTopic>
+</ManagedTopics>

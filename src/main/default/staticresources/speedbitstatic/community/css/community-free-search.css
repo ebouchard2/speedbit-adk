@@ -1,0 +1,158 @@
+#CoveoFallbackToAdminWarning {
+    display: none !important;
+}
+/* Coveo overrides */
+#search.CoveoSearchInterface {
+    font-family: "Lato", "Arimo", arial;
+}
+
+.result-type-url {
+    color: #59c9f2;
+    text-decoration: underline;
+    width: 207px;
+    overflow: hidden;
+    padding-top: 20px;
+    text-overflow: ellipsis;
+}
+
+.coveo-indexless .CoveoResultLink:hover,
+.coveo-indexless .CoveoResultLink:visited,
+.coveo-indexless a.CoveoResultLink:hover,
+.coveo-indexless a.CoveoResultLink:visited,
+.coveo-indexless .CoveoResult a.CoveoResultLink:hover,
+.coveo-indexless .CoveoResult a.CoveoResultLink:visited,
+.coveo-indexless .card-template-result-title>a.CoveoResultLink.card-template-result-link,
+.coveo-indexless .card-template-result-title>a.card-template-result-link:hover,
+.coveo-indexless .card-template-result-title a.CoveoResultLink.card-template-result-link,
+.coveo-indexless a.CoveoResultLink.card-template-result-link {
+    font-size: 16px;
+    color: black;
+    text-decoration: none;
+}
+
+/*SORT SECTION*/
+.coveo-indexless .coveo-results-header {
+    box-shadow: none;
+}
+.coveo-indexless .CoveoSort {
+    color: #9B9B9B;
+    border: none;
+}
+.coveo-indexless .CoveoSort.coveo-selected,
+.coveo-indexless .CoveoSort.coveo-selected:hover {
+    border: none;
+    color: #ea193a;
+}
+
+/* TAB SECTION */
+.coveo-indexless .CoveoTab p:hover {
+    color: #c8122f;
+}
+.coveo-indexless .CoveoTab p,
+.coveo-indexless .CoveoTab p:focus {
+    color: #9B9B9B
+}
+.coveo-indexless .coveo-tab-section {
+    width: 124%;
+    background: white;
+    text-align: center;
+    border-bottom: 0px solid #BCC3CA;
+    font-family: "montserrat", "Arimo", arial;
+}
+.coveo-indexless .CoveoTab.coveo-selected,
+.coveo-indexless .CoveoTab.coveo-selected:hover {
+    border-bottom: 2px solid #ea193a;
+}
+
+/* FACETS */
+.coveo-indexless .CoveoFacet,
+.coveo-indexless .CoveoFacetRange,
+.coveo-indexless .CoveoFacetSlider,
+.coveo-indexless .CoveoHierarchicalFacet {
+    border: none;
+    border-bottom: 2px solid #F0EDED;
+}
+.coveo-indexless .coveo-facet-header {
+    background: white;
+}
+.coveo-indexless .coveo-facet-header-title {
+    font-size: 14px;
+    font-weight: 900;
+    color: black;
+    text-transform: uppercase;
+}
+.coveo-indexless .coveo-facet-value .coveo-facet-value-checkbox {
+    border: 1px solid #9B9B9B;
+}
+.coveo-indexless .coveo-facet-value:hover .coveo-facet-value-checkbox,
+.coveo-indexless .coveo-facet-value.coveo-selected .coveo-facet-value-checkbox {
+    border: 1px solid #ea193a;
+}
+.coveo-indexless .coveo-facet-value {
+    color: #9B9B9B;
+}
+.coveo-indexless .coveo-facet-value.coveo-facet-search-button,
+.coveo-indexless .coveo-facet-value.coveo-selected {
+    color: #ea193a;
+}
+.coveo-indexless .coveo-facet-value-count {
+    visibility: visible;
+}
+.CoveoSearchInterface.coveo-indexless .coveo-facet-column {
+    width: 25%;
+}
+
+/* BREADCRUMB */
+.coveo-indexless .coveo-facet-slider-breadcrumb-title,
+.coveo-indexless .coveo-facet-breadcrumb-title {
+    line-height: 40px;
+}
+.coveo-indexless .coveo-facet-slider-breadcrumb-value,
+.coveo-indexless .coveo-facet-breadcrumb-value {
+    border: 1px solid #9b9b9b;
+    padding: 10px;
+    text-transform: uppercase;
+    border-radius: 2px;
+}
+.coveo-indexless .coveo-facet-breadcrumb-value.coveo-selected *,
+.coveo-indexless .coveo-facet-slider-breadcrumb-value.coveo-selected * {
+    color: #9b9b9b;
+}
+.coveo-indexless .coveo-facet-breadcrumb-clear {
+    vertical-align: text-top;
+    margin-top: 1px;
+}
+.coveo-indexless .coveo-facet-breadcrumb-value:hover,
+.coveo-indexless .coveo-facet-breadcrumb-value:hover a,
+.coveo-indexless .coveo-facet-slider-breadcrumb-value:hover,
+.coveo-indexless .coveo-facet-slider-breadcrumb-value:hover a {
+    text-decoration: none;
+}
+
+/* QUERY SUMMARY*/
+.coveo-indexless .CoveoQueryDuration,
+.coveo-indexless .CoveoQuerySummary {
+    color: #9b9b9b;
+    text-transform: uppercase;
+}
+
+/* PAGER */
+.coveo-indexless .coveo-pager-list-item.coveo-active,
+.coveo-indexless .coveo-active.coveo-results-per-page-list-item,
+.coveo-indexless .coveo-pager-list-item:hover,
+.coveo-indexless .coveo-results-per-page-list-item:hover {
+    background-color: #ea193a;
+    color: white;
+}
+.coveo-indexless .coveo-pager-previous.coveo-pager-anchor.coveo-pager-list-item:hover,
+.coveo-indexless .coveo-pager-next.coveo-pager-anchor.coveo-pager-list-item:hover {
+    background-color: transparent;
+}
+
+/*General*/
+.coveo-indexless button {
+    cursor: pointer;
+}
+.coveo-indexless *:focus {
+    outline: 0;
+}

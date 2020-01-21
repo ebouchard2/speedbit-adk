@@ -1,0 +1,46 @@
+<aura:component implements='forceCommunity:availableForAllPageTypes'>
+    <aura:attribute name="name" type="String" default="speedbitenterprisesearch" access="global" />
+    <aura:attribute name="searchHub" type="String" default="speedbit-community-enterprise" access="global" />
+    <aura:attribute name="debug" type="Boolean" default="true" access="global" />
+
+    <aura:attribute name="admin" type="Boolean" default="true" />
+
+    <!-- Custom event to open a modal flow. -->
+    <aura:registerEvent name="startFlowEvent" type="c:StartFlowEvent"/>
+    <aura:handler name="startFlowEvent" event="c:StartFlowEvent" action="{!c.handleStartFlow}" />
+    <aura:attribute name="modalPromise" type="Aura.Action"/>
+
+    <!-- Overlay library of the slds to create modal windows. -->
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+
+    <!-- Wrapper for LWC pubsub. -->
+    <c:auraPubsub aura:id="pubsub" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <ltng:require styles="{!$Resource.speedbitstatic + '/community/css/community-search.css'}" />
+
+    <!-- <c:startBot></c:startBot> -->
+
+    <!--<div class="slds-form-element personalization-form">
+       	<div class="select-container" style="max-width:200px;">
+            <lightning:select name="selectProfile" label="I am a ..." aura:id="perso-select" onchange="{!c.handlePersoChange}">
+                <option value="">Select one...</option>
+                <option value="new-customer">New Customer</option>
+                <option value="sales-rep">Sales Rep</option>
+            </lightning:select>
+        </div>
+    </div>-->
+
+    <div aura:id="searchContainer">
+        <CoveoV2:CommunitySearch 
+            name="{!v.name}" 
+            searchHub="{!v.searchHub}"
+            debug="{!v.debug}"
+            aura:id="coveoSearch"
+            customScripts="{!$Resource.customscript}" 
+            searchUIStyleExtensions="{!$Resource.speedbitstatic + '/community/css/community-search.css'}"
+            />
+    </div>
+
+</aura:component>

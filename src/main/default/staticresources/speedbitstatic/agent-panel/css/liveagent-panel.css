@@ -1,0 +1,197 @@
+.CoveoSearchbox.override-z-index .CoveoOmnibox.magic-box .magic-box-suggestions {
+    z-index: 30;
+}
+
+.salesforce-tab-section-style .CoveoTab.salesforce-tab-styles {
+    color: rgb(112, 110, 107);
+    font-size: 14px;
+}
+
+.magic-box-input input::placeholder {
+    color: rgb(112, 110, 107);
+}
+
+/* Badge */
+
+.result-badge {
+    padding: 0 14px 0 14px;
+    margin-right: 8px;
+    display: inline-block;
+    border-radius: 12px 6px 20px 6px;
+    font-size: 14px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    position: relative;
+    left: -4px;
+    z-index: 2;
+}
+
+.result-badge.recommended {
+    margin-right: -9px;
+    left: 0;
+    z-index: 3;
+}
+
+.result-badge,
+.result-badge.CoveoFieldValue .coveo-clickable {
+    color: #fff;
+}
+
+.result-badge.case.status-Working {
+    background-color: #239223;
+    position: relative;
+    left: -11px;
+    z-index: 1;
+    padding-left: 16px;
+}
+
+.bg-lavender {
+    background-color: #616be0;
+}
+
+.bg-orange {
+    background-color: #f58020;
+}
+
+.bg-dark-blue {
+    background-color: #2b338b;
+}
+
+.bg-light-blue {
+    background-color: #59c9f2;
+}
+
+.bg-case-yellow {
+    background-color: #f2cf5b;
+}
+
+.coveo-result-frame.coveo-result-folding-child-result,
+.coveo-list-layout .coveo-result-folding-child-result:hover {
+    border: none;
+    border-bottom: 1px solid #ccc;
+}
+
+.CoveoResultLink:hover,
+.CoveoResultLink:visited,
+a.CoveoResultLink:hover,
+a.CoveoResultLink:visited,
+.CoveoResult a.CoveoResultLink:hover,
+.CoveoResult a.CoveoResultLink:visited {
+    text-decoration: none;
+    color: #009ddc;
+}
+
+.CoveoSearchInterface,
+.CoveoFieldTable th,
+.CoveoFieldTable td {
+    font-size: 12px;
+}
+
+.custom-badge.coveo-value.coveo-clickable {
+    color: #296896;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.custom-badge.coveo-value {
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 1em;
+    line-height: 1.25em;
+    margin-right: 8px;
+}
+
+.custom-badge.coveo-value .coveo-badge-label {
+    vertical-align: middle;
+}
+
+.custom-badge.coveo-value .coveo-badge-icon {
+    position: relative;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 2px;
+    vertical-align: middle;
+}
+
+.custom-badge.coveo-value .coveo-badge-icon:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 2px;
+    top: 3px;
+    width: 12px;
+    height: 10px;
+    transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    border: 2px solid;
+    border-right: none;
+    filter: progid:DXImageTransform.Microsoft.Matrix( M11=0.7071067811865483, M12=0.7071067811865467, M21=-0.7071067811865467, M22=0.7071067811865483, SizingMethod='auto expand');
+    -webkit-backface-visibility: hidden;
+    -webkit-border-top-left-radius: 2px;
+    -webkit-border-bottom-left-radius: 2px;
+    -moz-border-radius-topleft: 2px;
+    -moz-border-radius-bottomleft: 2px;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+    box-sizing: border-box;
+}
+
+.custom-badge.coveo-value .coveo-badge-icon:after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 7px;
+    height: 7px;
+    border: 2px solid;
+    border-bottom: none;
+    border-left: none;
+    -webkit-border-top-right-radius: 3px;
+    -moz-border-radius-topright: 3px;
+    border-top-right-radius: 3px;
+    box-sizing: border-box;
+}
+
+.coveo-result-frame.coveo-result-folding-child-result {
+    background-color: #e9ebee;
+    margin: 4px 10px;
+    padding: 4px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    font-size: 13px;
+}
+
+.coveo-folding-results {
+    background-color: #e9ebee;
+    margin-right: 10px;
+}
+
+.custom-result-badge {
+    float: left;
+    border: 1px solid #bcc3ca;
+    font-size: 12px;
+    line-height: 18px;
+    border-radius: 2px;
+}
+
+.custom-top-result {
+    position: relative;
+    background: #f58020;
+    color: white;
+    display: inline-block;
+    padding: 0 5px;
+}
+
+span.result-type-badge {
+    padding: 0 5px;
+}
+
+.CoveoBreadcrumb {
+    width: 100%;
+}
+
+.coveo-contextual-results-toggle {
+    width: 100%;
+}

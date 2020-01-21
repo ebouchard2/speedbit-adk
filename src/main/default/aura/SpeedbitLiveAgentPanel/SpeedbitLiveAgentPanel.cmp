@@ -1,0 +1,38 @@
+<aura:component implements="force:hasRecordId,force:hasSObjectName,flexipage:availableForRecordHome">
+
+    <!-- ATTRIBUTES -->
+    <aura:attribute name="name" type="string" default="speedbitliveagentpanel" />
+    <aura:attribute name="searchHub" type="string" default="speedbitliveagent" />
+    <aura:attribute name="recordFields" type="string" default="" />
+    <aura:attribute name="fullSearchComponent" type="String" default="c__SpeedbitFullSearch" />
+    <aura:attribute name="debugInfos" type="Map" />
+
+    <!-- IMPLICIT ATTRIBUTES -->
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="sObjectName" type="String" />
+    
+    <lightning:workspaceAPI aura:id="workspaceAPI" />
+
+    <!-- HANDLERS -->
+    <aura:handler name="init" value="{!this}" action="{!c.fillDebugInfo}" />
+
+    <ltng:require styles="{!$Resource.speedbitstatic + '/agent-panel/css/liveagent-panel.css'}" />
+
+    <!-- BODY -->
+    <c:ConsoleDebugPanel debugInfos="{!v.debugInfos}"></c:ConsoleDebugPanel>
+
+    <CoveoV2:AgentPanel 
+        name="{!v.name}" 
+        recordId="{!v.recordId}" 
+        searchHub="{!v.searchHub}" 
+        recordFields="{!v.recordFields}" 
+        sObjectName="{!v.sObjectName}" 
+        fullSearchComponent="{!v.fullSearchComponent}" 
+        aura:id="coveoAgentPanel"
+        searchUIStyleExtensions="{!$Resource.speedbitstatic + '/agent-panel/css/agent-panel.css'}"
+        debug="true"
+        customScripts="{!$Resource.customscript}">
+    </CoveoV2:AgentPanel>
+
+
+</aura:component>

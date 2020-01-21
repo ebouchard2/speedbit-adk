@@ -1,0 +1,46 @@
+<aura:component>
+
+    <aura:attribute name="showDebugPanel" type="Boolean" access="global" />
+    <aura:attribute name="debugInfos" type="Map" access="global"/>
+    
+    <lightning:button onclick="{!c.showDebug}" iconName="utility:info_alt" class="debug-button" variant="base" />
+
+    <aura:if isTrue="{!v.showDebugPanel}">
+        <div class="debug-panel-root">
+            <div class="debug-panel-content">
+                <lightning:card title="Debug Information">
+                    <aura:set attribute="actions">
+                        <lightning:button label="Close" onclick="{!c.closeDebug}" />
+                    </aura:set>
+                    <div class="debug-panel-table">
+                        <table class="slds-table slds-table_bordered">
+                            <thead>
+                                <tr class="slds-text-title_caps">
+                                    <th scope="col">
+                                        <div class="slds-truncate" title="Debug Info">Info Name</div>
+                                    </th>
+                                    <th scope="col">
+                                        <div class="slds-truncate" title="Debug Value">Value</div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <aura:iteration items="{!v.debugInfos}" var="info">
+                                    <!-- Display all of the trending queries -->
+                                    <tr class="slds-hint-parent debugPanel__row">
+                                        <td data-label="Info" class="slds-cell-buffer_left" data-value="{!info.name}">
+                                            {!info.name}
+                                        </td>
+                                        <td data-label="Value" class="slds-cell-buffer_right slds-cell-wrap" data-value="{!info.value}">
+                                            <div>{!info.value}</div>
+                                        </td>
+                                    </tr>
+                                </aura:iteration>
+                            </tbody>
+                        </table>
+                    </div>
+                </lightning:card>
+            </div>
+        </div>
+    </aura:if>
+</aura:component>

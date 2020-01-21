@@ -1,0 +1,284 @@
+<apex:component >
+  <div id="search" 
+    class="CoveoSearchInterface font-lato top-margin-salesforce SearchInterface__CaseCreation" 
+    data-enable-history="false" data-design="new" 
+    data-expression='@objecttype==("Case", "Case Comment", "Message", "Known Issue") OR @source==("Help Section", "Youtube Speedbit", "Sharepoint Speedbit") OR @objecttypename==(Troubleshooting, "How To")' 
+    data-results-per-page="5" style="padding:20px;">
+
+    <div class="CoveoCaseDeflection"></div>
+    <div class="CoveoAnalytics"></div>
+
+    <div class="CoveoFolding" data-field="@litopicurl" data-expand-expression="@filetype==lithiummessage" data-rearrange="date ascending" data-maximum-expanded-results="1000"></div>
+
+    <div class="coveo-main-section" >
+
+      <div class="coveo-results-column">
+        <div class="CoveoErrorReport"></div>
+        <div class="facets-container">
+            <div class="CoveoFacet" data-title="Type" data-field="@objecttype" data-enable-collapse="true" data-enable-settings="false" data-enable-responsive-mode="true"></div>
+            <div class="CoveoFacet" data-title="Source" data-field="@source" data-enable-collapse="true" data-enable-settings="false" data-enable-responsive-mode="true"></div>
+        </div>
+
+        <div class="coveo-summary-section">
+            <div class="CoveoCaseCreationQuerySummary"></div>
+        </div>
+
+        <div class="CoveoTriggers"></div>
+        <div class="CoveoHiddenQuery"></div>
+        <div class="CoveoDidYouMean"></div>
+        <div class="CoveoResultList" data-wait-animation="fade" data-auto-select-fields-to-include="true" data-layout="list">
+            <div class="coveo-show-if-no-results">No information could be found related to your case.</div>
+
+            <!--WEB TEMPLATE-->
+            <script id='Web' class='result-template' type='text/html' data-field-sourcetype='Web' data-layout="list">
+                <div class="result-type-web">
+                    <div class="result-header">
+
+                        <span class="CoveoSpeedbitRecommendedBadge"></span>
+                        <div class="CoveoFieldValue bg-teal result-badge" data-field="@sourcetype"></div>
+
+                        <div class="CoveoFieldValue result-date" data-field="@sysdate" data-helper="date" data-helper-options-use-today-yesterday-and-tomorrow="false" data-helper-options-use-weekday-if-this-week="false" data-helper-options-include-time-if-today="false" data-helper-options-include-time-if-this-week="false"></div>
+                        <div class="result-link">
+                            <a class="CoveoResultLink" data-open-quickview="true"></a>
+                        </div>
+                        <div class='CoveoSalesforceQuickview' data-use-advanced-quickview="true" style="display:none"></div>
+                    </div>
+                    <div class="CoveoExcerpt result-excerpt"></div>
+                    <a class="CoveoResultLink"><span class="CoveoFieldValue" data-field="@clickuri"></span></a>
+                </div>
+            </script>
+
+            <!--KNOWLEDGE TEMPLATE-->
+            <script id='Knowledge' class='result-template' type='text/html' data-field-objecttype='Troubleshooting,How_To' data-layout="list">
+                <div class="result-type-knowledge">
+                    <div class="result-header">
+
+                        <span class="CoveoSpeedbitRecommendedBadge"></span>
+                        <div class="bg-lavender result-badge">Article</div>
+
+                        <div class="CoveoFieldValue result-date" data-field="@sysdate" data-helper="date" data-helper-options-use-today-yesterday-and-tomorrow="false" data-helper-options-use-weekday-if-this-week="false" data-helper-options-include-time-if-today="false" data-helper-options-include-time-if-this-week="false"></div>
+                        <div class="result-link">
+                            <a class="CoveoResultLink" data-open-quickview="true"></a>
+                        </div>
+                        <div class='CoveoSalesforceQuickview' data-use-advanced-quickview="true" style="display:none"></div>
+                    </div>
+                    <div class="CoveoExcerpt result-excerpt"></div>
+                </div>
+            </script>
+
+            <!--YOUTUBE TEMPLATE-->
+            <script id='YouTube' class='result-template' type='text/html' data-field-filetype='YouTubeVideo' data-layout="list">
+                <div class="result-type-youtube">
+                    <div class="result-header">
+
+                        <span class="CoveoSpeedbitRecommendedBadge"></span>
+                        <div class="bg-youtube-red result-badge">YouTube</div>
+
+                        <div class="CoveoFieldValue result-date" data-field="@sysdate" data-helper="date" data-helper-options-use-today-yesterday-and-tomorrow="false" data-helper-options-use-weekday-if-this-week="false" data-helper-options-include-time-if-today="false" data-helper-options-include-time-if-this-week="false"></div>
+                        <div class="result-link">
+                            <a class="CoveoResultLink" data-always-open-in-new-window="true"></a>
+                        </div>
+                    </div>
+                    <div style="display: flex">
+                        <div class="result-thumbnail-left">
+                            <div class="CoveoYouTubeThumbnail" style="min-width: 160px;" data-width="auto" data-height="auto"></div>
+                            <div style="float:left;">
+                                <span class="CoveoFieldValue" data-field="@ytvideoduration" data-helper="timeSpan" data-helper-options-is-milliseconds="false"></span>
+                            </div>
+                            <div style="float:right;">
+                                <span class="CoveoFieldValue" data-field="@ytviewcount" data-helper="number" data-helper-options-format="n"></span>
+                                <span class="CoveoText" data-value="views"></span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="CoveoExcerpt result-excerpt"></div>
+                        </div>
+                    </div>
+                </div>
+            </script>
+
+            <!--PRODUCT TEMPLATE-->
+            <script id='Product' class='result-template' type='text/html' data-field-objecttype='Product' data-layout="list">
+                <div class="result-type-product">
+                    <div class="result-header">
+
+                        <span class="CoveoSpeedbitRecommendedBadge"></span>
+                        <div class="CoveoFieldValue bg-red result-badge" data-field="@objecttype"></div>
+
+                        <div class="CoveoFieldValue result-date" data-field="@sfpricec" data-helper="currency" data-helper-options-decimals="2"></div>
+                        <div class="result-link">
+                            <a class="CoveoResultLink" data-open-quickview="true"></a>
+                        </div>
+                        <div class='CoveoSalesforceQuickview' data-use-advanced-quickview="true" style="display:none"></div>
+                    </div>
+                    <div style="display: flex">
+                        <div class="result-thumbnail-left">
+                            <div class="CoveoFieldValue" data-field="@sfimagec" data-helper="image" data-html-value="true" data-width="160px" style="min-width: 160px;"></div>
+                        </div>
+                        <div>
+                            <div class="CoveoFieldValue" data-field="@sfproductcode" data-text-caption="MODEL NUMBER"></div>
+                        </div>
+                    </div>
+                </div>
+            </script>
+
+            <!--JIRA TEMPLATE-->
+            <script id='Jira' class='result-template' type='text/html' data-field-objecttype='Known Issue' data-layout="list">
+                <div class="result-type-jira">
+                    <div class="result-header">
+
+                        <span class="CoveoSpeedbitRecommendedBadge"></span>
+                        <div class="CoveoFieldValue bg-dark-blue result-badge" data-field="@objecttype"></div>
+
+                        <div class="CoveoFieldValue result-date" data-field="@sysdate" data-helper="date" data-helper-options-use-today-yesterday-and-tomorrow="false" data-helper-options-use-weekday-if-this-week="false" data-helper-options-include-time-if-today="false" data-helper-options-include-time-if-this-week="false"></div>
+                        <div class="result-link">
+                            <a class="CoveoResultLink" data-open-quickview="true"></a>
+                        </div>
+                        <div class='CoveoSalesforceQuickview' data-use-advanced-quickview="true" style="display:none"></div>
+                    </div>
+                    <div class="CoveoExcerpt result-excerpt"></div>
+                    <div class="CoveoFieldValue" data-field="@jifieldsassigneedisplayname" data-text-caption="Assignee: "></div>
+                    <a class="CoveoResultLink"><span class="CoveoFieldValue" data-field="@clickuri"></span></a>
+                </div>
+            </script>
+
+            <!--SHAREPOINT TEMPLATE-->
+            <script id='SharePoint' class='result-template' type='text/html' data-field-sourcetype='Sharepoint' data-layout="list">
+                <div class="result-type-sharepoint">
+                    <div class="result-header">
+
+                        <span class="CoveoSpeedbitRecommendedBadge"></span>
+                        <div class="CoveoFieldValue bg-dark-blue result-badge" data-field="@sourcetype"></div>
+
+                        <div class="CoveoFieldValue result-date" data-field="@sysdate" data-helper="date" data-helper-options-use-today-yesterday-and-tomorrow="false" data-helper-options-use-weekday-if-this-week="false" data-helper-options-include-time-if-today="false" data-helper-options-include-time-if-this-week="false"></div>
+                        <div class="result-link">
+                            <a class="CoveoResultLink" data-open-quickview="true"></a>
+                        </div>
+                        <div class='CoveoSalesforceQuickview' data-use-advanced-quickview="true" style="display:none"></div>
+                    </div>
+                    <div class="CoveoExcerpt result-excerpt"></div>
+                    <div class="CoveoFieldValue result-author" data-field="@author" data-text-caption="From: "></div>
+                </div>
+            </script>
+
+            <!-- SOLVED LITHIUM TEMPLATE -->
+            <script id='SolvedLithium' class='result-template' type='text/html' data-field-connectortype="LithiumCrawler" data-field-lithreadhassolution="true" data-layout="list">
+                <div class="result-type-message">
+                    <div class="result-header">
+
+                        <span class="CoveoSpeedbitRecommendedBadge"></span>
+                        <div class="CoveoFieldValue bg-pale-blue result-badge" data-field="@objecttype"></div>
+
+                        <div class="CoveoFieldValue result-date" data-field="@sysdate" data-helper="date" data-helper-options-use-today-yesterday-and-tomorrow="false" data-helper-options-use-weekday-if-this-week="false" data-helper-options-include-time-if-today="false" data-helper-options-include-time-if-this-week="false"></div>
+                        <div class="result-link">
+                            <a class="CoveoResultLink" data-open-quickview="true"></a>
+                        </div>
+                        <div class='CoveoSalesforceQuickview' data-use-advanced-quickview="true" style="display:none"></div>
+                    </div>
+                    <div class="lithium-solved-badge">
+                        <span class="solved-badge-checkmark">✔</span>
+                        <span>SOLVED</span>
+                    </div>
+                    <div class="CoveoExcerpt result-excerpt"></div>
+                    <div class="CoveoFieldValue result-author" data-field="@authorloginname" data-text-caption="From: "></div>
+                    <div class="CoveoResultFolding" data-result-template-id="MessageFoldingTemplate"></div>
+                </div>
+            </script>
+
+            <!-- MESSAGE TEMPLATE -->
+            <script id='Message' class='result-template' type='text/html' data-field-connectortype="LithiumCrawler" data-layout="list">
+                <div class="result-type-message">
+                    <div class="result-header">
+
+                        <span class="CoveoSpeedbitRecommendedBadge"></span>
+                        <div class="CoveoFieldValue bg-pale-blue result-badge" data-field="@objecttype"></div>
+
+                        <div class="CoveoFieldValue result-date" data-field="@sysdate" data-helper="date" data-helper-options-use-today-yesterday-and-tomorrow="false" data-helper-options-use-weekday-if-this-week="false" data-helper-options-include-time-if-today="false" data-helper-options-include-time-if-this-week="false"></div>
+                        <div class="result-link">
+                            <a class="CoveoResultLink" data-open-quickview="true"></a>
+                        </div>
+                        <div class='CoveoSalesforceQuickview' data-use-advanced-quickview="true" style="display:none"></div>
+                    </div>
+                    <div class="CoveoExcerpt result-excerpt"></div>
+                    <div class="CoveoFieldValue result-author" data-field="@authorloginname" data-text-caption="From: "></div>
+                    <div class="CoveoResultFolding" data-result-template-id="MessageFoldingTemplate"></div>
+                </div>
+            </script>
+
+            <!-- SALESFORCE TEMPLATE -->
+            <script id='Salesforce' class='result-template' type='text/html' data-field-sourcetype='Salesforce' data-layout="list">
+                <div class="result-type-message">
+                    <div class="result-header">
+
+                        <span class="CoveoSpeedbitRecommendedBadge"></span>
+                        <div class="CoveoFieldValue bg-salesforce-blue result-badge" data-field="@objecttype"></div>
+
+                        <div class="CoveoFieldValue result-date" data-field="@sysdate" data-helper="date" data-helper-options-use-today-yesterday-and-tomorrow="false" data-helper-options-use-weekday-if-this-week="false" data-helper-options-include-time-if-today="false" data-helper-options-include-time-if-this-week="false"></div>
+                        <div class="result-link">
+                            <a class="CoveoResultLink" data-open-quickview="true"></a>
+                        </div>
+                        <div class='CoveoSalesforceQuickview' data-use-advanced-quickview="true" style="display:none"></div>
+                    </div>
+                    <div class="CoveoExcerpt result-excerpt"></div>
+                    <a class="CoveoFieldValue result-uri" data-field="@printableuri"></a>
+                </div>
+            </script>
+
+            <!-- MESSAGE FOLDING TEMPLATE -->
+            <script id='MessageFoldingTemplate' class='result-template' type='text/html' data-layout="list" data-field-connectortype="LithiumCrawler" >
+                <div class="result-type-message-folded">
+                    <div class="result-link">
+                        <a class="CoveoResultLink" data-open-quickview="true"></a>
+                    </div>
+                    <div class='CoveoSalesforceQuickview' data-use-advanced-quickview="true" style="display:none"></div>
+
+                    <div class="CoveoExcerpt result-excerpt"></div>
+                    <div class="result-author">
+                        <div class="CoveoFieldValue" data-field="@authorloginname" data-text-caption="From: "></div>
+                        <div class="CoveoFieldValue" data-field="@sysdate" data-text-caption=" Date: "
+                                data-helper="date"
+                                data-helper-options-use-today-yesterday-and-tomorrow="false"
+                                data-helper-options-use-weekday-if-this-week="false"
+                                data-helper-options-include-time-if-today="false"
+                                data-helper-options-include-time-if-this-week="false"></div>
+                    </div>
+                </div>
+            </script>
+
+            <!-- DEFAULT TEMPLATE -->
+            <script id="Default" class="result-template" type="text/html" data-layout="list">
+                <div class="result-type-default">
+                    <div class="result-header">
+
+                        <span class="CoveoSpeedbitRecommendedBadge"></span>
+                        <div class="bg-default result-badge"> - </div>
+
+                        <div class="CoveoFieldValue result-date" data-field="@sysdate" data-helper="date" data-helper-options-use-today-yesterday-and-tomorrow="false" data-helper-options-use-weekday-if-this-week="false" data-helper-options-include-time-if-today="false" data-helper-options-include-time-if-this-week="false"></div>
+                        <div class="result-link">
+                            <a class="CoveoResultLink" data-open-quickview="true"></a>
+                        </div>
+                        <div class='CoveoSalesforceQuickview' data-use-advanced-quickview="true" style="display:none"></div>
+                    </div>
+                    <div class="CoveoExcerpt result-excerpt"></div>
+                    <div class="result-details">
+                        <table class="CoveoFieldTable">
+                            <tbody>
+                                <tr data-field="@objecttype" data-caption="Object Type"></tr>
+                                <tr data-field="@sourcetype" data-caption="Source Type"></tr>
+                                <tr data-field="@source" data-caption="Source"></tr>
+                                <tr data-field="@filetype" data-caption="File Type"></tr>
+                                <tr data-field="@sysconcepts" data-caption="concepts"></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </script>
+
+        </div>
+
+        <div class="CoveoPager"></div>
+
+      </div>
+    </div>
+  </div>
+</apex:component>

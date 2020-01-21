@@ -1,0 +1,21 @@
+<aura:component implements="forceCommunity:searchInterface" >
+    <aura:attribute name="name" type="String" default="speedbitenterprisesearch" access="global" />
+    <aura:attribute name="searchHub" type="String" default="speedbit-community-enterprise" access="global" />
+    <aura:attribute name="debug" type="Boolean" default="true" access="global" />
+    <aura:attribute name="enableQuerySyntax" type="Boolean" default="true" access="global"/>
+
+    <!-- Handler for navigation event. -->
+    <aura:handler event="forceCommunity:routeChange" action="{!c.handleRouteChange}" />
+
+    <!-- Wrapper for LWC pubsub. -->
+    <c:auraPubsub aura:id="pubsub" />
+
+    <!-- CoveoV2 Community searchbox. -->
+    <CoveoV2:CommunitySearchBox 
+        name="{!v.name}"
+        searchHub="{!v.searchHub}"
+        enableQuerySyntax="{!v.enableQuerySyntax}"
+        debug="{!v.debug}">
+    </CoveoV2:CommunitySearchBox>
+
+</aura:component>

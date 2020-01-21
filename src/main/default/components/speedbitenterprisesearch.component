@@ -1,0 +1,926 @@
+<apex:component >
+
+    <div id="search" class="CoveoSearchInterface div__enterprisesearch" data-design="new" data-results-per-page="9" data-expression='NOT @filename=(.aspx) NOT @filetype=(spsite,spwikipagelibrarylist,"Box User") NOT @documenttype==(List,Folder,community) NOT @source==("Salesforce SpeedBit") NOT @objecttype=(Thread,Topic,Board,Category,Space) NOT @sfid=="kA16A000000khO4SAI" NOT @connectortype==(Dynamics2Crawler)' data-enable-history="true">
+
+        <div class="CoveoAnalytics"></div>
+
+        <!--FOLDINGS-->
+        <div class="CoveoFoldingForThread" data-field="@sffeeditemid" data-tab="Chatter" data-child="@sfid" data-parent="@sffeeditemid" data-rearrange="date descending" data-range="0"></div>
+        <div class="CoveoFolding" data-field="@litopicurl" data-expand-expression="@filetype==lithiummessage" data-rearrange="date ascending" data-tab="Community"></div>
+
+        <!--TABS-->
+        <div class="coveo-tab-section">
+            <a class='CoveoTab' data-id='Support' data-caption='Support' data-expression='@source==("Atlassian SpeedBit", "Help Section", "Box Speedbit", "Sharepoint Speedbit") OR @objecttypename==("Troubleshooting","How To", Video, "Flow__c") OR @limessageistopic=="true"' data-layout="list"></a>
+            <a class='CoveoTab' data-id='Products' data-caption='Shop' data-expression='@objecttype=="Product"' data-layout="card"></a>
+            <a class="CoveoTab" data-id="Downloads" data-caption="Manuals" data-expression='@source==("Sharepoint Speedbit","Box Speedbit")' data-layout="list"></a>
+            <a class="CoveoTab" data-id="Community" data-caption="Community" data-expression='@objecttypename==(Message)' data-layout="list"></a>
+            <a class="CoveoTab" data-id="Videos" data-caption="Videos" data-expression='@objecttypename==(Video)' data-layout="card"></a>
+            <a class="CoveoTab" data-id="Developers" data-caption="Developers" data-expression='@source==("Doc FitBit", "Sharepoint Speedbit")' data-layout="list"></a>
+        </div>
+
+        <div class="coveo-search-section">
+            <div class="CoveoCommunityStateManager"></div>
+        </div>
+
+        <div class="coveo-main-section">
+
+            <!-- FACETS -->
+            <div class="coveo-facet-column">
+                <div data-title="Price" class="CoveoFacetSlider" data-field="@sfpricec" data-range-slider="true" data-display-as-value-unit-sign="$" data-graph-steps="10" data-tab="Products" data-end="500" data-exclude-outer-bounds="true" data-steps="10" data-enable-collapse="false" data-enable-settings="false"></div>
+                
+                <div class='CoveoFacet' data-title='Family' data-field='@sffamily' data-tab='Products' data-enable-settings="false" data-enable-collapse="false"></div>
+                <div data-title="Designer" class="CoveoFacet" data-field="@sfcreatedbyname" data-tab="Products" data-enable-settings="false" data-enable-collapse="false"></div>
+
+                <div data-title="Document Type" class="CoveoFacet" data-field="@objecttypename" data-tab="Support" data-enable-collapse="false" data-enable-settings="false"></div>
+                
+                <div class="CoveoFacet" data-title="Author" data-field="@author" data-tab="Videos" data-enable-collapse="false" data-enable-settings="false"></div>
+
+                <div data-title="Added Date" class="CoveoFacetSlider" data-field="@sysdate" data-date-field="true" data-tab="Community, Support, Downloads, Videos, Developers" data-range-slider="true" data-enable-collapse="false" data-enable-settings="false" data-graph-steps="15"></div>
+                
+                <div data-title="Board" class="CoveoFacet" data-field="@liboardshorttitle" data-tab="Community" data-enable-collapse="false" data-enable-settings="false"></div>
+                <div data-title="Has Solution" class="CoveoFacet" data-field="@lithreadhassolution" data-tab="Community" data-enable-collapse="false" data-enable-settings="false"></div>
+                <div data-title="Language" class="CoveoFacet" data-field="@language" data-tab="Community, Support, Downloads" data-enable-collapse="false" data-enable-settings="false"></div>
+                <div data-title="File type" class="CoveoFacet" data-field="@filetype" data-tab="Support, Downloads" data-enable-collapse="false" data-enable-settings="false"></div>
+                
+                <div data-title="Document Type" class="CoveoFacet" data-field="@objecttypename" data-tab="Community" data-enable-collapse="false" data-enable-settings="false"></div>
+                <div data-title="Author" class="CoveoFacet" data-field="@limessageauthor" data-tab="Community" data-enable-collapse="false" data-enable-settings="false"></div>
+
+                <div data-title="Document Type" class="CoveoFacet" data-field="@objecttypename" data-tab="Developers" data-enable-collapse="false" data-enable-settings="false"></div>
+
+            </div>
+
+            <div class="coveo-results-column">
+
+                <div class="CoveoTriggers"></div>
+                <div class="CoveoBreadcrumb"></div>
+
+                <div class="coveo-result-layout-section justify-flex-end">
+                    <span class="CoveoResultLayout"></span>
+                </div>
+
+                <div class="coveo-results-header">
+                    <div class="coveo-summary-section">
+                        <span class="CoveoQuerySummary"></span>
+                        <span class="CoveoQueryDuration"></span>
+                    </div>
+
+                    <!--SORTING-->
+                    <div class="coveo-sort-section">
+                        <span class="CoveoSort" data-sort-criteria="relevancy" data-caption="Relevance"></span>
+                        <span class="sort-section-separator"></span>
+                        <span class="CoveoSort" data-sort-criteria="date descending,date ascending" data-caption="Date"></span>
+                        <!--<span class="CoveoSort" data-sort-criteria="sfpricec descending,sfpricec ascending" data-caption="Price" data-tab="Products"></span>-->
+                    </div>
+
+                </div>
+
+                <div class="CoveoHiddenQuery"></div>
+                <div class="CoveoDidYouMean"></div>
+                <div class="CoveoErrorReport" data-pop-up="false"></div>
+
+                
+                <div class="CoveoResultList" data-layout="list" data-wait-animation="fade">
+                    
+                    <!-- LIST QUESTION ANSWER -->
+                    <script id="list-qna" class="result-template" type="text/html" data-layout="list" data-field-questionanswer="questionAnswer">
+                        <div class="coveo-result-frame">
+                            <div class="coveo-result-cell" style="vertical-align: top;padding-left: 16px;">
+                                <div class="coveo-result-row" style="margin-top:0;">
+                                    <div class="coveo-result-cell" style="vertical-align:top;font-size:16px;">
+                                        <a class="CoveoResultLink"></a>
+                                    </div>
+                                    <div class="coveo-result-cell" style="width:120px;text-align:right;font-size:12px">
+                                        <div class="coveo-result-row">
+                                            <span class="CoveoFieldValue" data-field="@sfsummary" data-html-value="true"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+
+                    <!-- LIST FLOW -->
+                    <script id="list-flow" class="result-template" type="text/html" data-layout="list" data-field-objecttypename="Flow__c">
+                        <div class="coveo-result-frame">
+                            <div class="coveo-result-cell" style="vertical-align:top;text-align:center;width:32px;">
+                                <span class="CoveoIcon" data-small="true" data-with-label="false" data-value="coveo-filetype-salesforce-standard-flow"></span>
+                            </div>
+                            <div class="coveo-result-cell" style="vertical-align: top;padding-left: 16px;">
+                                <span class="CoveoSpeedbitRecommendedBadge"></span>
+                                <div class="coveo-result-row" style="margin-top:0;">
+                                    <div class="coveo-result-cell" style="vertical-align:top;font-size:16px;">
+                                        <a class="CoveoResultLink" id="FlowResultLink"></a>
+                                    </div>
+                                    <div class="coveo-result-cell" style="width:120px;text-align:right;font-size:12px">
+                                        <div class="coveo-result-row">
+                                            <span class="CoveoFieldValue" data-field="@date" data-helper="date"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:10px;">
+                                    <div class="coveo-result-cell">
+                                        <span class="CoveoExcerpt"></span>
+                                    </div>
+                                </div>
+                                <hr style="margin: 1rem 0;"/>
+                                <div class="coveo-result-row">
+                                    <div class="coveo-result-cell">
+                                        <span class="CoveoFieldValue List__FlowFirstSteps" data-field="@sffirststepsc" data-html-value="true" style="line-height:1.5em"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+
+                    <!-- LIST YOUTUBE -->
+                    <script id="list-youtube" class="result-template" type="text/html" data-field-filetype="YouTubeVideo" data-layout="list">
+                        <div class="coveo-result-frame">
+                            <div class="coveo-result-cell" style="vertical-align:top;text-align:center;width:32px;">
+                                <span class="CoveoIcon" data-small="true" data-with-label="false" data-value="coveo-filetype-salesforce-doctype-video"></span>
+                            </div>
+                            <div class="coveo-result-cell" style="vertical-align: top;padding-left: 16px;">
+                                <span class="CoveoSpeedbitRecommendedBadge"></span>
+                                <div class="coveo-result-row" style="margin-top:0;">
+                                    <div class="coveo-result-cell" style="vertical-align:top;font-size:16px;">
+                                        <a class="CoveoResultLink"></a>
+                                    </div>
+                                    <div class="coveo-result-cell" style="width:120px;text-align:right;font-size:12px">
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:10px;">
+                                    <div class="coveo-result-cell">
+                                        <span class="CoveoExcerpt"></span>
+                                    </div>
+                                </div>
+                                <!-- <div class="coveo-result-row" style="margin-top:10px;">
+                                    <div class="coveo-result-cell">
+                                        <span class="CoveoFieldValue" data-field="@ytvideoduration" data-helper="timeSpan" data-helper-options-is-milliseconds="false"></span>
+                                        <span class="CoveoText" data-value="•"></span>
+                                        <span class="CoveoFieldValue" data-field="@ytviewcount"></span>
+                                        <span class="CoveoText" data-value="views"></span>
+                                    </div>
+                                </div> -->
+                                <div class="CoveoMissingTerms"></div>
+                            </div>
+                            <div class="coveo-result-cell" style="width:220px; padding-top:7px">
+                                <span class="CoveoYouTubeThumbnail" data-width="220px" data-height="auto"></span>
+                            </div>
+                        </div>
+                    </script>
+
+                    <!-- LIST PRODUCT -->
+                    <script id='list-Product' class='result-template' type='text/html' data-field-objecttype='Product' data-layout="list">
+                        <div class="coveo-result-frame">
+                            <div class="coveo-result-cell" style="vertical-align:top;text-align:center;width:60px;">
+                                <div class="CoveoSalesforceQuickview" data-use-advanced-quickview="true">
+                                    <span class="CoveoFieldValue" data-field="@sfimagec" data-helper="image" data-html-value="true"></span>
+                                </div>
+                            </div>
+                            <div class="coveo-result-cell" style="vertical-align: top;padding-left: 16px;">
+                                <span class="CoveoSpeedbitRecommendedBadge"></span>
+                                <div class="coveo-result-row" style="margin-top:0;">
+                                    <div class="coveo-result-cell" style="vertical-align:top;font-size:16px;">
+                                        <a class="CoveoSalesforceResultLink"></a>
+                                    </div>
+                                    <div class="coveo-result-cell" style="width:120px;text-align:right;font-size:12px">
+                                        <div class="coveo-result-row">
+                                            <span class="CoveoFieldValue" data-field="@date" data-helper="date"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:10px;">
+                                    <div class="coveo-result-cell">
+                                        <span class="CoveoExcerpt"></span>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:10px;">
+                                    <div class="coveo-result-cell">
+                                        <span class="CoveoFieldValue" data-field="@sfpricec" data-text-caption="Price" style="margin-right:30px;" data-helper="currency" data-helper-options-decimals="2"></span>
+                                        <span class="CoveoFieldValue" data-field="@sffamily" data-text-caption="Family" style="margin-right:30px;"></span>
+                                    </div>
+                                </div>
+                                <div class="CoveoMissingTerms"></div>
+                            </div>
+                        </div>
+                    </script>
+
+                    <!-- LIST KNOWLEDGE -->
+                    <script id="list-knowledge" class="result-template" type="text/html" data-field-objecttype='Troubleshooting,How_To' data-layout="list">
+                        <div class="coveo-result-frame">
+                            <div class="coveo-result-cell" style="vertical-align:top;text-align:center;width:32px;">
+                                <span class="CoveoIcon" data-small="true" data-with-label="false" data-value="coveo-filetype-salesforce-standard-knowledge"></span>
+                                <div class="CoveoSalesforceQuickview" data-use-advanced-quickview="true"></div>
+                            </div>
+                            <div class="coveo-result-cell" style="vertical-align: top;padding-left: 16px;">
+                                <span class="CoveoSpeedbitRecommendedBadge"></span>
+                                <div class="coveo-result-row" style="margin-top:0;">
+                                    <div class="coveo-result-cell" style="vertical-align:top;font-size:16px;">
+                                        <a class="CoveoSalesforceResultLink"></a>
+                                    </div>
+                                    <div class="coveo-result-cell" style="width:120px;text-align:right;font-size:12px">
+                                        <div class="coveo-result-row">
+                                            <span class="CoveoFieldValue" data-field="@date" data-helper="date"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:10px;">
+                                    <div class="coveo-result-cell">
+                                        <span class="CoveoExcerpt"></span>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:10px;">
+                                    <div class="coveo-result-cell">
+                                        <span class="CoveoFieldValue" data-field="@author" data-text-caption="Author" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@language" data-text-caption="Language" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@objecttypename" data-text-caption="Article Type" style="margin-right:30px;"></span>
+                                    </div>
+                                </div>
+                                <div class="CoveoMissingTerms"></div>
+                            </div>
+                        </div>
+                    </script>
+
+                    <!-- LITHIUM SOLVED-->
+                    <script id="list-lithium-solved" class="result-template" type="text/html" data-field-objecttype="Message" data-field-lithreadhassolution="true" data-layout="list">
+                        <div class="coveo-result-frame list-community">
+                            <div class="coveo-result-cell" style="vertical-align:top;text-align:center;width:32px;">
+                                <span class="CoveoIcon" data-small="true" data-with-label="false"></span>
+                                <div class="CoveoSalesforceQuickview" data-use-advanced-quickview="true"></div>
+                            </div>
+                            <div class="coveo-result-cell" style="vertical-align: top;padding-left: 16px;">
+                                <span class="CoveoSpeedbitRecommendedBadge"></span>
+                                <div class="coveo-result-row" style="margin-top:0;">
+                                    <div class="coveo-result-cell" style="vertical-align:top;font-size:16px;">
+                                        <a class="CoveoResultLink" data-open-quickview="true"></a>
+                                        <span class="lithium-solved-badge">
+                                            <span class="solved-badge-checkmark">✔</span>
+                                            <span>SOLVED</span>
+                                        </span>
+                                    </div>
+                                    <div class="coveo-result-cell" style="width:120px;text-align:right;font-size:12px">
+                                        <div class="coveo-result-row">
+                                            <span class="CoveoFieldValue" data-field="@date" data-helper="date"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:10px;">
+                                    <div class="coveo-result-cell">
+                                        <span class="CoveoFieldValue" data-field="@authorloginname" data-text-caption="From:" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@liboardshorttitle" data-text-caption="To:" style="margin-right:30px;"></span>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:10px;">
+                                    <div class="coveo-result-cell">
+                                        <span class="CoveoExcerpt"></span>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:10px;">
+                                    <div class="coveo-result-cell" style="font-size:13px;">
+                                        <span class="CoveoResultFolding" data-result-template-id="list-lithium-child" data-more-caption="ShowCompleteThread" data-less-caption="ShowOnlyTopMatchingPosts"></span>
+                                    </div>
+                                </div>
+                                <div class="CoveoMissingTerms"></div>
+                            </div>
+                        </div>
+                    </script>
+
+                    <!-- LITHIUM -->
+                    <script id="list-lithium" class="result-template" type="text/html" data-field-objecttype="Message" data-layout="list">
+                        <div class="coveo-result-frame">
+                            <div class="coveo-result-cell" style="vertical-align:top;text-align:center;width:32px;">
+                                <span class="CoveoIcon" data-small="true" data-with-label="false"></span>
+                                <div class="CoveoSalesforceQuickview" data-use-advanced-quickview="true"></div>
+                            </div>
+                            <div class="coveo-result-cell" style="vertical-align: top;padding-left: 16px;">
+                                <span class="CoveoSpeedbitRecommendedBadge"></span>
+                                <div class="coveo-result-row" style="margin-top:0;">
+                                    <div class="coveo-result-cell" style="vertical-align:top;font-size:16px;">
+                                        <a class="CoveoResultLink" data-open-quickview="true"></a>
+                                    </div>
+                                    <div class="coveo-result-cell" style="width:120px;text-align:right;font-size:12px">
+                                        <div class="coveo-result-row">
+                                            <span class="CoveoFieldValue" data-field="@date" data-helper="date"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:10px;">
+                                    <div class="coveo-result-cell">
+                                        <span class="CoveoFieldValue" data-field="@authorloginname" data-text-caption="From:" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@liboardshorttitle" data-text-caption="To:" style="margin-right:30px;"></span>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:10px;">
+                                    <div class="coveo-result-cell">
+                                        <span class="CoveoExcerpt"></span>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:10px;">
+                                    <div class="coveo-result-cell" style="font-size:13px;">
+                                        <span class="CoveoResultFolding" data-result-template-id="list-lithium-child" data-more-caption="ShowCompleteThread" data-less-caption="ShowOnlyTopMatchingPosts"></span>
+                                    </div>
+                                </div>
+                                <div class="CoveoMissingTerms"></div>
+                            </div>
+                        </div>
+                    </script>
+
+                    <!-- LITHIUM-CHILD -->
+                    <script id="list-lithium-child" class="result-template" type="text/html" data-field-objecttype="Message" data-layout="list">
+                        <div class="coveo-result-frame coveo-email-result">
+                            <div class="coveo-result-row">
+                                <div class="coveo-result-cell" style="width:50px;text-align:center;">
+                                    <span class="CoveoIcon" data-small="true"></span>
+                                    <div class="CoveoSalesforceQuickview" data-use-advanced-quickview="true"></div>
+                                </div>
+                                <div class="coveo-result-cell">
+                                    <div class="coveo-result-row">
+                                        <div class="coveo-result-cell" style="font-size:15px">
+                                            <a class="CoveoResultLink" data-open-quickview="true"></a>
+                                        </div>
+                                        <div class="coveo-result-cell" style="width:120px;text-align:right;font-size:12px">
+                                            <span class="CoveoFieldValue" data-field="@date" data-helper="emailDateTime"></span>
+                                        </div>
+                                    </div>
+                                    <div class="coveo-result-row">
+                                        <div class="coveo-result-cell" style="font-size:13px;padding-top:5px;padding-bottom:5px;">
+                                            <span class="CoveoFieldValue" data-field="@authorloginname" data-text-caption="From:" style="margin-right:30px;"></span>
+                                            <span class="CoveoFieldValue" data-field="@liboardshorttitle" data-text-caption="To:" style="margin-right:30px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="coveo-result-row">
+                                        <div class="coveo-result-cell" style="padding-top:5px; padding-bottom:5px">
+                                            <span class="CoveoExcerpt"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+
+                    <!-- LIST DEFAULT -->
+                    <script id="list-default" class="result-template" type="text/html" data-layout="list">
+                        <div class="coveo-result-frame">
+                            <div class="coveo-result-cell" style="vertical-align:top;text-align:center;width:32px;">
+                                <span class="CoveoIcon" data-small="true" data-with-label="false"></span>
+                                <div class="CoveoSalesforceQuickview" data-use-advanced-quickview="true"></div>
+                            </div>
+                            <div class="coveo-result-cell" style="vertical-align: top;padding-left: 16px;">
+                                <span class="CoveoSpeedbitRecommendedBadge"></span>
+                                <div class="coveo-result-row" style="margin-top:0;">
+                                    <div class="coveo-result-cell" style="vertical-align:top;font-size:16px;">
+                                        <a class="CoveoResultLink" data-open-quickview="true"></a>
+                                    </div>
+                                    <div class="coveo-result-cell" style="width:120px;text-align:right;font-size:12px">
+                                        <div class="coveo-result-row">
+                                            <span class="CoveoFieldValue" data-field="@date" data-helper="date"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:10px;">
+                                    <div class="coveo-result-cell">
+                                        <span class="CoveoExcerpt"></span>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:10px;">
+                                    <div class="coveo-result-cell">
+                                        <span class="CoveoFieldValue" data-field="@author" data-text-caption="Author" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@language" data-text-caption="Language" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@filetype" data-text-caption="File Type" style="margin-right:30px;"></span>
+                                    </div>
+                                </div>
+                                <div class="CoveoMissingTerms"></div>
+                            </div>
+                        </div>
+                    </script>
+
+                </div>
+
+                <div class="CoveoResultList" data-layout="card" data-wait-animation="fade">
+
+                    <!--PRODUCT TEMPLATE-->
+                    <script id='Product' class='result-template' type='text/html' data-field-objecttype='Product' data-layout="card">
+                        <div class="card-result-container red product">
+                            <div class="card-template-header">
+                                <div class="result-type-badge product">
+                                    <span class="CoveoFieldValue" data-field="@objecttype"></span>
+                                </div>
+                                <div class="header-top-right">
+                                    <span class="CoveoFieldValue" data-field="@sfpricec" data-helper="currency" data-helper-options-decimals="2"></span>
+                                </div>
+                            </div>
+                            <div class="card-template-content" style="margin-bottom:20px;">
+                                <div class="card-template-image-container">
+                                    <span class="CoveoFieldValue" data-field="@sfimagec" data-helper="image" data-html-value="true"></span>
+                                </div>
+                                <div class="card-template-result-specs">
+                                    <div class="card-template-result-title">
+                                        <a class="CoveoSalesforceResultLink card-template-result-link"></a>
+                                    </div>
+                                    <div class="card-template-description-container">
+                                        <span class="CoveoFieldValue" data-field="@sfproductcode" data-text-caption="MODEL NUMBER"></span>
+                                    </div>
+                                    <div class="product-stars"></div>
+                                </div>
+                            </div>
+                            <div class="card-template-footer">
+                                <div class="card-template-result-action">
+                                    <button class="product-cart-button">ADD TO CART</button>
+                                </div>
+                            </div>
+                            <div class="CoveoCardActionBar">
+                                
+                                <div class="CoveoCardOverlay" data-title="Details" data-icon="coveo-sprites-star_active">
+                                    <span class="CoveoExcerpt card-template-result-excerpt"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+
+                    <!--YOUTUBE TEMPLATE-->
+                    <script id='YouTube' class='result-template' type='text/html' data-field-filetype='YouTubeVideo' data-layout="card">
+                        <div class="card-result-container youtube-red youtube">
+                            <div class="card-template-header">
+                                <div class="result-type-badge">
+                                    <span>YouTube</span>
+                                </div>
+                                <div class="header-top-right">
+                                    <span class="CoveoFieldValue" data-field="@sysdate" data-helper="date" data-helper-options-use-today-yesterday-and-tomorrow="false" data-helper-options-use-weekday-if-this-week="false" data-helper-options-include-time-if-today="false" data-helper-options-include-time-if-this-week="false"></span>
+                                </div>
+                            </div>
+                            <div class="card-template-result-title">
+                                <a class="CoveoResultLink card-template-result-link"></a>
+                            </div>
+                            <div class="card-template-content" style="margin-bottom:20px;">
+                                <div class="card-template-image-container">
+                                    <div class="CoveoYouTubeThumbnail" data-width="initial" data-height="auto"></div>
+                                </div>
+                                <div class="card-template-result-specs">
+                                    <div class="card-template-description-container">
+                                        <div class="custom-yt-duration">
+                                            <span class="CoveoFieldValue" data-field="@ytvideoduration" data-helper="timeSpan" data-helper-options-is-milliseconds="false"></span>
+                                        </div>
+                                        <div class="custom-yt-view-count">
+                                            <span class="CoveoFieldValue" data-field="@ytviewcount" data-helper="number" data-helper-options-format="n"></span>
+                                            <span class="CoveoText" data-value="views"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-template-footer"></div>
+                            <div class="CoveoCardActionBar">
+                                
+                                <div class="CoveoCardOverlay" data-title="Details" data-icon="coveo-sprites-star_active">
+                                    <span class="CoveoExcerpt card-template-result-excerpt"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+
+                    <!--SOLVED LITHIUM TEMPLATE-->
+                    <script id='Message' class='result-template' type='text/html' data-field-objecttype='Message' data-field-lithreadhassolution="true" data-layout="card">
+                        <div class="card-result-container pale-blue community">
+                            <div class="card-template-header">
+                                <div class="result-type-badge">
+                                    <span class="CoveoFieldValue" data-field="@objecttype"></span>
+                                </div>
+                                <div class="header-top-right">
+                                    <span class="CoveoFieldValue" data-field="@sysdate" data-helper="date" data-helper-options-use-today-yesterday-and-tomorrow="false" data-helper-options-use-weekday-if-this-week="false" data-helper-options-include-time-if-today="false" data-helper-options-include-time-if-this-week="false"></span>
+                                </div>
+                            </div>
+                            <div class="card-template-content" style="margin-bottom:20px;">
+                                <div class="lithium-solved-badge">
+                                    <span class="solved-badge-checkmark">✔</span>
+                                    <span>SOLVED</span>
+                                </div>
+                                <div class="card-template-body-title">
+                                    <div class="card-template-result-title">
+                                        <a class="CoveoResultLink card-template-result-link" data-open-quickview="true"></a>
+                                    </div>
+                                </div>
+                                <div class="card-template-result-specs">
+                                    <div class="card-template-description-container">
+                                        <div class="card-template-excerpt">
+                                            <span class="CoveoExcerpt"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-template-footer">
+                                <div class="CoveoTextAuthor">
+                                    From : <span class="CoveoFieldValue" data-field="@authorloginname"></span>
+                                </div>
+                            </div>
+                            <div class="CoveoCardActionBar">
+                                
+                                <div class="CoveoSalesforceQuickview" data-use-advanced-quickview="true"></div>
+                                <div class="CoveoCardOverlay" data-title="Details" data-icon="coveo-sprites-star_active">
+                                    <span class="CoveoFieldValue" data-field="@liboardtitle" data-text-caption="Board"></span><br/>
+                                    <span class="CoveoFieldValue" data-field="@litopicviewcount" data-text-caption="Views"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+
+                    <!--COMMUNITY TEMPLATE-->
+                    <script id='Message' class='result-template' type='text/html' data-field-objecttype='Message' data-layout="card">
+                        <div class="card-result-container pale-blue community">
+                            <div class="card-template-header">
+                                <div class="result-type-badge">
+                                    <span class="CoveoFieldValue" data-field="@objecttype"></span>
+                                </div>
+                                <div class="header-top-right">
+                                    <span class="CoveoFieldValue" data-field="@sysdate" data-helper="date" data-helper-options-use-today-yesterday-and-tomorrow="false" data-helper-options-use-weekday-if-this-week="false" data-helper-options-include-time-if-today="false" data-helper-options-include-time-if-this-week="false"></span>
+                                </div>
+                            </div>
+                            <div class="card-template-content" style="margin-bottom:20px;">
+                                <div class="card-template-body-title">
+                                    <div class="card-template-result-title">
+                                        <a class="CoveoResultLink card-template-result-link" data-open-quickview="true"></a>
+                                    </div>
+                                </div>
+                                <div class="card-template-result-specs">
+                                    <div class="card-template-description-container">
+                                        <div class="card-template-excerpt">
+                                            <span class="CoveoExcerpt"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-template-footer">
+                                <div class="CoveoTextAuthor">
+                                    From : <span class="CoveoFieldValue" data-field="@authorloginname"></span>
+                                </div>
+                            </div>
+                            <div class="CoveoCardActionBar">
+                                
+                                <div class="CoveoSalesforceQuickview" data-use-advanced-quickview="true"></div>
+                                <div class="CoveoCardOverlay" data-title="Details" data-icon="coveo-sprites-star_active">
+                                    <span class="CoveoFieldValue" data-field="@liboardtitle" data-text-caption="Board"></span><br/>
+                                    <span class="CoveoFieldValue" data-field="@litopicviewcount" data-text-caption="Views"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+
+                    <!--KNOWLEDGE TEMPLATE-->
+                    <script id='Knowledge' class='result-template' type='text/html' data-field-objecttype='Troubleshooting,How_To' data-layout="card">
+                        <div class="card-result-container lavender knowledge">
+                            <div class="card-template-header">
+                                <div class="result-type-badge">
+                                    <span>Article</span>
+                                </div>
+                                <div class="header-top-right">
+                                    <span class="CoveoFieldValue" data-field="@sysdate" data-helper="date" data-helper-options-use-today-yesterday-and-tomorrow="false" data-helper-options-use-weekday-if-this-week="false" data-helper-options-include-time-if-today="false" data-helper-options-include-time-if-this-week="false"></span>
+                                </div>
+                            </div>
+                            <div class="card-template-content" style="margin-bottom:20px;">
+                                <div class="card-template-body-container">
+                                    <div class="card-template-result-title">
+                                        <a class="CoveoSalesforceResultLink card-template-result-link"></a>
+                                    </div>
+                                    <div class="card-template-excerpt">
+                                        <span class="CoveoExcerpt card-template-result-excerpt"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-template-footer">
+                                <span class="CoveoFieldValue card-concepts" data-field="@sysconcepts" data-split-values="true" data-display-separator=" "></span>
+                            </div>
+                            <div class="CoveoCardActionBar">
+                                
+                                <div class="CoveoSalesforceQuickview" data-use-advanced-quickview="true"></div>
+                                <div class="CoveoCardOverlay" data-title="Details" data-icon="coveo-sprites-star_active">
+                                    <span class="CoveoExcerpt card-template-result-excerpt"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+
+                    <!--CONFLUENCE TEMPLATE-->
+                    <script id='Confluence' class='result-template' type='text/html' data-field-connectortype='Confluence2Crawler' data-layout="card">
+                        <div class="card-result-container atlassian-blue confluence">
+                            <div class="card-template-header">
+                                <div class="result-type-badge">
+                                    <span>CONFLUENCE</span>
+                                </div>
+                                <div class="header-top-right">
+                                    <span class="CoveoFieldValue" data-field="@sysdate" data-helper="date" data-helper-options-use-today-yesterday-and-tomorrow="false" data-helper-options-use-weekday-if-this-week="false" data-helper-options-include-time-if-today="false" data-helper-options-include-time-if-this-week="false"></span>
+                                </div>
+                            </div>
+                            <div class="card-template-content" style="margin-bottom:20px;">
+                                <div class="card-template-body-container">
+                                    <div class="card-template-result-title">
+                                        <a class="CoveoResultLink card-template-result-link" data-open-quickview="true"></a>
+                                    </div>
+                                    <div class="card-template-excerpt">
+                                        <span class="CoveoExcerpt card-template-result-excerpt"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-template-footer">
+                                <span class="CoveoFieldValue card-concepts" data-field="@sysconcepts" data-split-values="true" data-display-separator=" "></span>
+                            </div>
+                            <div class="CoveoCardActionBar">
+                                
+                                <div class="CoveoSalesforceQuickview" data-use-advanced-quickview="true"></div>
+                                <div class="CoveoCardOverlay" data-title="Details" data-icon="coveo-sprites-star_active">
+                                    <span class="CoveoExcerpt card-template-result-excerpt"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+
+                    <!--SHAREPOINT TEMPLATE-->
+                    <script id='Sharepoint' class='result-template' type='text/html' data-field-connectortype='SharePoint' data-layout="card">
+                        <div class="card-result-container dark-blue sharepoint">
+                            <div class="card-template-header">
+                                <div class="result-type-badge">
+                                    <span class="CoveoFieldValue" data-field="@spcontenttype"></span>
+                                </div>
+                                <div class="header-top-right">
+                                    <span class="CoveoFieldValue" data-field="@sysdate" data-helper="date" data-helper-options-use-today-yesterday-and-tomorrow="false" data-helper-options-use-weekday-if-this-week="false" data-helper-options-include-time-if-today="false" data-helper-options-include-time-if-this-week="false"></span>
+                                </div>
+                            </div>
+                            <div class="card-template-content" style="margin-bottom:20px;">
+                                <div class="card-template-body-container">
+                                    <div class="card-template-result-title">
+                                        <a class="CoveoResultLink card-template-result-link" data-title-template="${raw.filename}" data-open-quickview="true"></a>
+                                    </div>
+                                    <div class="card-template-excerpt">
+                                        <span class="CoveoExcerpt card-template-result-excerpt"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-template-footer">
+                                <span class="CoveoFieldValue card-concepts" data-field="@sysconcepts" data-split-values="true" data-display-separator=" "></span>
+                            </div>
+                            <div class="CoveoCardActionBar">
+                                
+                                <div class="CoveoSalesforceQuickview" data-use-advanced-quickview="true"></div>
+                                <div class="CoveoCardOverlay" data-title="Details" data-icon="coveo-sprites-star_active">
+                                    <span class="CoveoExcerpt card-template-result-excerpt"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+
+                    <!--BOX IMAGE TEMPLATE-->
+                    <script id='Box' class='result-template' type='text/html' data-field-connectortype='BoxCrawler' data-field-filetype="Image" data-layout="card">
+                        <div class="card-result-container dark-blue box">
+                            <div class="card-template-header">
+                                <div class="result-type-badge">
+                                    <span>Image</span>
+                                </div>
+                                <div class="header-top-right">
+                                    <span class="CoveoFieldValue" data-field="@sysdate" data-helper="date" data-helper-options-use-today-yesterday-and-tomorrow="false" data-helper-options-use-weekday-if-this-week="false" data-helper-options-include-time-if-today="false" data-helper-options-include-time-if-this-week="false"></span>
+                                </div>
+                            </div>
+                            <div class="card-template-content" style="margin-bottom:20px;">
+                                <div class="card-template-body-container">
+                                    <div class="card-template-result-title">
+                                        <a class="CoveoResultLink card-template-result-link" data-open-quickview="true"></a>
+                                    </div>
+                                    <div class="card-template-excerpt">
+                                        <img class="CoveoThumbnail" width="100%"></img>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-template-footer">
+                                <span class="CoveoFieldValue card-concepts" data-field="@sysconcepts" data-split-values="true" data-display-separator=" "></span>
+                            </div>
+                            <div class="CoveoCardActionBar">
+                                
+                                <div class="CoveoSalesforceQuickview" data-use-advanced-quickview="true"></div>
+                                <div class="CoveoCardOverlay" data-title="Details" data-icon="coveo-sprites-star_active">
+                                    <span class="CoveoExcerpt card-template-result-excerpt"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+
+                    <!--BOX TEMPLATE-->
+                    <script id='Box' class='result-template' type='text/html' data-field-connectortype='BoxCrawler' data-layout="card">
+                        <div class="card-result-container dark-blue box">
+                            <div class="card-template-header">
+                                <div class="result-type-badge">
+                                    <span>Document</span>
+                                </div>
+                                <div class="header-top-right">
+                                    <span class="CoveoFieldValue" data-field="@sysdate" data-helper="date" data-helper-options-use-today-yesterday-and-tomorrow="false" data-helper-options-use-weekday-if-this-week="false" data-helper-options-include-time-if-today="false" data-helper-options-include-time-if-this-week="false"></span>
+                                </div>
+                            </div>
+                            <div class="card-template-content" style="margin-bottom:20px;">
+                                <div class="card-template-body-container">
+                                    <div class="card-template-result-title">
+                                        <a class="CoveoResultLink card-template-result-link"></a>
+                                    </div>
+                                    <div class="card-template-excerpt">
+                                        <span class="CoveoExcerpt card-template-result-excerpt"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-template-footer">
+                                <span class="CoveoFieldValue card-concepts" data-field="@sysconcepts" data-split-values="true" data-display-separator=" "></span>
+                            </div>
+                            <div class="CoveoCardActionBar">
+                                
+                                <div class="CoveoSalesforceQuickview" data-use-advanced-quickview="true"></div>
+                                <div class="CoveoCardOverlay" data-title="Details" data-icon="coveo-sprites-star_active">
+                                    <span class="CoveoExcerpt card-template-result-excerpt"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+
+                    <!--JIRA TEMPLATE-->
+                    <script id='Jira' class='result-template' type='text/html' data-field-objecttype='Known Issue' data-layout="card">
+                        <div class="card-result-container lavender jira">
+                            <div class="card-template-header">
+                                <div class="result-type-badge">
+                                    <span class="CoveoFieldValue" data-field="@objecttype"></span>
+                                </div>
+                                <div class="header-top-right">
+                                    <span class="CoveoFieldValue" data-field="@sysdate" data-helper="date" data-helper-options-use-today-yesterday-and-tomorrow="false" data-helper-options-use-weekday-if-this-week="false" data-helper-options-include-time-if-today="false" data-helper-options-include-time-if-this-week="false"></span>
+                                </div>
+                            </div>
+                            <div class="card-template-content" style="margin-bottom:20px;">
+                                <div class="card-template-body-container">
+                                    <div class="card-template-result-title">
+                                        <a class="CoveoResultLink card-template-result-link" data-open-quickview="true"></a>
+                                    </div>
+                                    <div class="card-template-excerpt">
+                                        <span class="CoveoExcerpt card-template-result-excerpt"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-template-footer">
+                                <span class="CoveoFieldValue card-concepts" data-field="@sysconcepts" data-split-values="true" data-display-separator=" "></span>
+                            </div>
+                            <div class="CoveoCardActionBar">
+                                
+                                <div class="CoveoSalesforceQuickview" data-use-advanced-quickview="true"></div>
+                                <div class="CoveoCardOverlay" data-title="Details" data-icon="coveo-sprites-star_active">
+                                    <span class="CoveoExcerpt card-template-result-excerpt"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+
+                    <!--WEB TEMPLATE-->
+                    <script id='Web' class='result-template' type='text/html' data-field-sourcetype='Web' data-layout="card">
+                        <div class="card-result-container teal web">
+                            <div class="card-template-header">
+                                <div class="result-type-badge">
+                                    <span class="CoveoFieldValue" data-field="@sourcetype"></span>
+                                </div>
+                                <div class="header-top-right">
+                                    <span class="CoveoFieldValue" data-field="@sysdate" data-helper="date" data-helper-options-use-today-yesterday-and-tomorrow="false" data-helper-options-use-weekday-if-this-week="false" data-helper-options-include-time-if-today="false" data-helper-options-include-time-if-this-week="false"></span>
+                                </div>
+                            </div>
+                            <div class="card-template-content" style="margin-bottom:20px;">
+                                <div class="card-template-body-container">
+                                    <div class="card-template-result-title">
+                                        <a class="CoveoResultLink card-template-result-link" data-open-quickview="true"></a>
+                                    </div>
+                                    <div class="card-template-excerpt">
+                                        <span class="CoveoExcerpt card-template-result-excerpt"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-template-footer">
+                                <span class="CoveoFieldValue card-concepts" data-field="@sysconcepts" data-split-values="true" data-display-separator=" "></span>
+                            </div>
+                            <div class="CoveoCardActionBar">
+                                
+                                <div class="CoveoSalesforceQuickview" data-use-advanced-quickview="true"></div>
+                                <div class="CoveoCardOverlay" data-title="Details" data-icon="coveo-sprites-star_active">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+
+                    <!--FLOW CARD TEMPLATE-->
+                    <script id='Flow-Card' class='result-template' type='text/html' data-field-objecttypelabel="Flow" data-layout="card">
+                        <div class="card-result-container lavender flow">
+                            <div class="card-template-header">
+                                <div class="result-type-badge">
+                                    <span class="CoveoFieldValue" data-field="@objecttypelabel"></span>
+                                </div>
+                                <div class="header-top-right"></div>
+                            </div>
+                            <div class="card-template-content" style="margin-bottom:20px;">
+                                <div class="card-template-body-container">
+                                    <div class="card-template-result-title">
+                                        <a class="CoveoResultLink card-template-result-link" id="FlowResultLink"></a>
+                                    </div>
+                                    <div class="card-template-excerpt">
+                                        <span class="CoveoExcerpt card-template-result-excerpt"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-template-footer">
+                            </div>
+                            <div class="CoveoCardActionBar">
+                                
+                                <div class="CoveoCardOverlay" data-title="Details" data-icon="coveo-sprites-star_active">
+                                    <span class="CoveoFieldValue" data-field="@sffirststeps__c" data-html-value="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+
+                    <!--WEBSITE TEMPLATE-->
+                    <script id='Web' class='result-template' type='text/html' data-field-objecttype='Web' data-layout="card">
+                        <div class="card-result-container Knowledge">
+                            <div class="card-template-header">
+                                <div class="result-type-badge knowledge">
+                                    <span class="CoveoFieldValue" data-field="@objecttype"></span>
+                                </div>
+                            </div>
+                            <div class="card-template-content" style="margin-bottom:20px;">
+                                <div class="card-template-body-container">
+                                    <div class="card-template-body-container-knowledge-title">
+                                        <span class="CoveoFieldValue" data-field="@systitle" data-html-value="true"></span>
+                                    </div>
+                                    <div class="card-template-excerpt">
+                                        <span class="CoveoExcerpt card-template-result-excerpt"></span>
+                                    </div>
+                                </div>
+                                <div class="card-template-result-specs">
+                                    <div class="card-template-description-container">
+                                        <div class="result-type-url">
+                                            <span class="CoveoFieldValue" data-field="@printableUri"></span>
+                                        </div>
+                                        <div class="CoveoTextKnowledge">
+                                            <span class="CoveoText" data-value="MODIFIED"></span>
+                                        </div>
+                                        <div class="CoveoTextKnowledgeDate">
+                                            <span class="CoveoFieldValue" data-field="@sysdate" data-helper="date"></span>
+                                        </div>
+                                    </div>
+                                    <div class="product-stars"></div>
+                                </div>
+                            </div>
+                            <div class="card-template-footer">
+                                <span class="CoveoFieldValue" data-field="@litopicauthor"></span>
+                            </div>
+                            <div class="CoveoCardActionBar">
+                                <div class="CoveoCardOverlay" data-title="Details" data-icon="coveo-sprites-star_active">
+                                    <span class="CoveoExcerpt card-template-result-excerpt"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+
+                    <!--DEFAULT-->
+                    <script id='Default' class='result-template' type='text/html' data-layout="card">
+                        <div class="card-result-container Knowledge">
+                            <div class="card-template-header">
+                                <div class="result-type-badge knowledge">
+                                    <span class="CoveoFieldValue" data-field="@objecttype"></span>
+                                </div>
+                            </div>
+                            <div class="card-template-content" style="margin-bottom:20px;">
+                                <div class="card-template-body-container">
+                                    <div class="card-template-body-container-knowledge-title">
+                                        <span class="CoveoFieldValue" data-field="@systitle" data-html-value="true"></span>
+                                    </div>
+                                    <div class="card-template-excerpt">
+                                        <span class="CoveoExcerpt card-template-result-excerpt"></span> 
+                                    </div>
+                                </div>
+                                <div class="card-template-result-specs">
+                                    <div class="card-template-description-container">
+                                        <div class="result-type-url">
+                                            <span class="CoveoFieldValue" data-field="@printableUri"></span>
+                                        </div>
+                                        <div class="CoveoTextKnowledge">
+                                            <span class="CoveoText" data-value="MODIFIED"></span>
+                                        </div>
+                                        <div class="CoveoTextKnowledgeDate">
+                                            <span class="CoveoFieldValue" data-field="@sysdate" data-helper="date"></span>
+                                        </div>
+                                    </div>
+                                    <div class="product-stars"></div>
+                                </div>
+                            </div>
+                            <div class="card-template-footer">
+                                <span class="CoveoFieldValue" data-field="@litopicauthor"></span>
+                            </div>
+                            <div class="CoveoCardActionBar">
+                                <div class="CoveoCardOverlay" data-title="Details" data-icon="coveo-sprites-star_active">
+                                    <span class="CoveoExcerpt card-template-result-excerpt"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+
+                </div>
+
+                <div class="CoveoPager"></div>
+            </div>
+        </div>
+    </div>
+
+</apex:component>

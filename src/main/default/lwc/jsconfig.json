@@ -6,8 +6,26 @@
             "c/auraPubsub": [
                 "auraPubsub/auraPubsub.js"
             ],
+            "c/browserInfos": [
+                "browserInfos/browserInfos.js"
+            ],
             "c/pubsub": [
                 "pubsub/pubsub.js"
+            ],
+            "c/topicInfos": [
+                "topicInfos/topicInfos.js"
+            ],
+            "c/userGreetings": [
+                "userGreetings/userGreetings.js"
+            ],
+            "c/userInfos": [
+                "userInfos/userInfos.js"
+            ],
+            "c/visitHistory": [
+                "visitHistory/visitHistory.js"
+            ],
+            "c/visitInformationPanel": [
+                "visitInformationPanel/visitInformationPanel.js"
             ]
         }
     },

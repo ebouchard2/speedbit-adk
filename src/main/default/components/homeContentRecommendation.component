@@ -1,0 +1,52 @@
+<apex:component >
+    <div id="speedbitContentRecommendation" class="CoveoSearchInterface div__homeContentRecommendation" data-design="new" data-results-per-page="4" data-excerpt-length="100"
+        data-enable-history="false" 
+        data-expression='NOT @filename=(.aspx) NOT @filetype=(spsite,spwikipagelibrarylist,"Box User") NOT @documenttype==(List,Folder,community) NOT @source==("Salesforce SpeedBit") NOT @objecttype=(Thread,Topic,Board,Category,Space) NOT @sfid=="kA16A000000khO4SAI" NOT @connectortype==(Dynamics2Crawler)'
+        style="font-size: 12px;margin-bottom:30px;margin-right:30px;">
+        <div class="CoveoAnalytics"></div>
+        <div class="coveo-main-section">
+            <div class="coveo-results-column" style="padding-left:0;">
+                <div class="CoveoResultList" data-auto-select-fields-to-include="true" data-layout="list">
+
+                    <script id="list-default" class="result-template" type="text/html" data-layout="list">
+                        <div class="coveo-result-frame">
+                            <div class="coveo-result-row">
+                                <div class="coveo-result-cell" style="vertical-align:top;text-align:center;width:20px;">
+                                    <div class="CoveoQuickview">
+                                        <span class="CoveoIcon" data-small="true" data-with-label="false" style="background-size:18px;background-repeat:no-repeat;height:20px;width:20px;"></span>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-cell" style="padding-left:10px;vertical-align:top;">
+                                    <span class="CoveoFieldValue" data-field="@objecttypename" style="text-transform: uppercase; vertical-align: -webkit-baseline-middle;font-size:16px;"></span>
+                                </div>
+                            </div>
+                            <div class="coveo-result-row">
+                                <a class="CoveoResultLink" data-open-quickview="true" style="color:#ee4454;font-size:16px;"></a>
+                            </div>
+                            <div class="coveo-result-row">
+                                <span class="CoveoExcerpt" data-open-quickview="true"></span>
+                            </div>
+                        </div>
+                    </script>
+
+                </div>
+            </div>
+        </div>
+        <div class="Div__ContainerSeeMore" style="padding-left:15px; margin-bottom: 30px;">
+            <button class="Button__SeeMore" type="button" 
+                style="
+                    border: 2px solid #2b338b;
+                    padding: 0.5rem 2rem;
+                    margin: 0;
+                    text-decoration: none;
+                    background-color: white;
+                    color: #2b338b;
+                    font-size: 1rem;
+                    font-weight: bold;
+                    border-radius: 30px;
+                ">
+                See More Documents
+            </button>
+        </div>
+    </div>
+</apex:component>

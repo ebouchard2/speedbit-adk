@@ -1,0 +1,50 @@
+<apex:component >
+    <div id="speedbitBlazeBlogRecommendation" class="CoveoSearchInterface SearchInterface__productBlazeBlogRecommendation" data-design="new" data-results-per-page="2" data-excerpt-length="200" data-enable-history="false" data-expression='@objecttypename=="Blog Post"' style="font-size: 12px;">
+        <div class="CoveoAnalytics"></div>
+        <div class="coveo-tab-section" style="
+            background-color: transparent;
+            border: none;
+            max-width: 90%;
+            display: flex;
+            justify-content: center;">
+            <a class='CoveoTab' data-id='GetMoving' data-caption='Get Moving' data-expression='' data-layout="card"></a>
+            <div class="Tab__headerDivider"></div>
+            <a class='CoveoTab' data-id='BeInspired' data-caption='Be Inspired' data-expression='' data-layout="card"></a>
+            <div class="Tab__headerDivider"></div>
+            <a class='CoveoTab' data-id='FeelGood' data-caption='Feel Good' data-expression='' data-layout="card"></a>
+            <div class="Tab__headerDivider"></div>
+            <a class='CoveoTab' data-id='EatWell' data-caption='Eat Well' data-expression='' data-layout="card"></a>
+        </div>
+        <div class="coveo-main-section">
+            <div class="coveo-results-column">
+                <div class="CoveoResultList" data-auto-select-fields-to-include="false" data-layout="card">
+
+                    <script id="list-default" class="result-template" type="text/html" data-layout="card">
+                        <div class="coveo-result-frame" style="padding: 0;">
+                            <div class="CoveoBackdrop coveo-result-row" data-image-field="@image" data-overlay-gradient="false" style="min-height:400px;">
+                            </div>
+                            <div class="coveo-result-row" style="padding: 20px 40px 10px 40px">
+                                <div class="coveo-result-cell" style="text-align:left">
+                                    <span class="CoveoResultLink" style="font-size:20px;color:#eb193a;"></span> 
+                                </div>
+                            </div>
+                            <div class="coveo-result-row" style="padding: 10px 40px">
+                                <div class="coveo-result-cell" style="text-align:left">
+                                    <span class="CoveoExcerpt" style="font-size:18px;line-height: 1.2em;"></span> 
+                                </div>
+                            </div>
+                            <div class="coveo-result-row" style="padding: 10px 40px">
+                                <div class="coveo-result-cell" style="text-align:left">
+                                    <div class="CoveoQuickview">
+                                        <span style="font-size:16px;font-weight:bold;color:#2b338b;">Read More</span> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</apex:component>

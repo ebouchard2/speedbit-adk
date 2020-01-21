@@ -1,0 +1,41 @@
+<apex:component >
+    <div id="speedbitHomeProductRecommendation" class="CoveoSearchInterface div__homeAuthProductRecommendation" data-design="new" data-results-per-page="3"
+        data-excerpt-length="100" data-enable-history="false" style="font-size: 12px;display:flex;">
+        <div class="CoveoAnalytics"></div>
+        <div class="coveo-main-section">
+            <div class="coveo-results-column">
+                <div class="CoveoResultList" data-auto-select-fields-to-include="true" data-layout="card">
+
+                    <script id="list-default" class="result-template" type="text/html" data-layout="card" data-field-documenttype="Video">
+                        <div class="coveo-result-frame" style="padding: 0">
+                            <div class="CoveoBackdrop coveo-result-row" data-image-field="@ytthumbnailurl" data-overlay-gradient="false" style="min-height:150px;">
+                            </div>
+                            <div class="coveo-result-row" style="padding: 20px">
+                                <div class="coveo-result-cell" style="text-align:center">
+                                    <span class="CoveoResultLink" style="font-size:20px;color:black;"></span> 
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+
+                    <script id="list-default" class="result-template" type="text/html" data-layout="card">
+                        <div class="coveo-result-frame" style="padding: 0">
+                            <div class="CoveoBackdrop coveo-result-row" data-image-field="@image" data-overlay-gradient="false" style="min-height:150px;">
+                            </div>
+                            <div class="coveo-result-row" style="padding: 20px">
+                                <div class="coveo-result-cell" style="text-align:center">
+                                    <span class="CoveoResultLink" style="font-size:20px;color:black;"></span> 
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+
+                </div>
+            </div>
+        </div>
+        <div class="div__homeAuthProductsText">
+            <h3 class="h3__homeAuthProductsTitle">Because you recently purchased a Speedbit Blaze</h3>
+            <span class="span__homeAuthProductsText">Here are your next steps.</span>
+        </div>
+    </div>
+</apex:component>

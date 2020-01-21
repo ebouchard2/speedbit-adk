@@ -1,0 +1,11 @@
+.THIS .trendingQueries__icon {
+    text-align: right;
+}
+
+.THIS .trendingQueries__row {
+    cursor: pointer;
+}
+
+.THIS .trendingQueries__icon svg.slds-icon {
+    margin-top: -4px;
+}
