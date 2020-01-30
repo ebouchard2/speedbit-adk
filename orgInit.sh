@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sfdx force:org:create --definitionfile config/project-scratch-def.json --setalias ADK --setdefaultusername --durationdays 1
+sfdx force:org:create --definitionfile config/project-scratch-def.json --setalias ADK --setdefaultusername --durationdays 30
 
 #add pckg IDs to Idnum
 # CoveoV2: version 3.42
